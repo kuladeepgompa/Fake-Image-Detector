@@ -1,13 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
-import sharp from 'sharp'
 import path from 'path'
 import fs from 'fs'
+
+// Lazy load sharp to avoid bundling issues
+let sharpModule: any = null
+async function getSharp() {
+  if (!sharpModule) {
+    sharpModule = await import('sharp')
+  }
+  return sharpModule.default || sharpModule
+}
 
 // Dynamic import for ONNX Runtime to avoid webpack bundling issues
 let onnxRuntime: any = null
 async function getOnnxRuntime() {
   if (!onnxRuntime) {
-    onnxRuntime = await import('onnxruntime-node')
+    try {
+      onnxRuntime = await import('onnxruntime-node')
+    } catch (error: any) {
+      console.error('ONNX Runtime import error:', error)
+      throw new Error(`Failed to import ONNX Runtime: ${error.message}. Make sure onnxruntime-node is installed.`)
+    }
   }
   return onnxRuntime
 }
@@ -76,6 +89,7 @@ async function loadModel(): Promise<any> {
 async function preprocessImage(imageBuffer: Buffer): Promise<Float32Array> {
   try {
     // Resize and normalize image using sharp
+    const sharp = await getSharp()
     const image = sharp(imageBuffer)
     const metadata = await image.metadata()
 
@@ -109,18 +123,43 @@ async function preprocessImage(imageBuffer: Buffer): Promise<Float32Array> {
   }
 }
 
+// CORS headers helper
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Log that the route was hit
+    console.log('POST /api/analyze called')
+    
     const formData = await request.formData()
     const file = formData.get('file') as File
 
     if (!file) {
-      return NextResponse.json({ error: 'No file provided' }, { status: 400 })
+      console.log('No file provided')
+      return NextResponse.json(
+        { error: 'No file provided' },
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
+      )
     }
+
+    console.log(`Processing file: ${file.name}, type: ${file.type}, size: ${file.size}`)
 
     // Validate file type
     if (!file.type.startsWith('image/')) {
-      return NextResponse.json({ error: 'File must be an image' }, { status: 400 })
+      return NextResponse.json(
+        { error: 'File must be an image' },
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
+      )
     }
 
     // Read file as buffer
@@ -128,14 +167,24 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(arrayBuffer)
 
     if (buffer.length === 0) {
-      return NextResponse.json({ error: 'Empty file' }, { status: 400 })
+      return NextResponse.json(
+        { error: 'Empty file' },
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
+      )
     }
 
     // Preprocess image
+    console.log('Preprocessing image...')
     const preprocessed = await preprocessImage(buffer)
+    console.log('Image preprocessed, shape:', preprocessed.length)
 
     // Load model (cached after first load)
+    console.log('Loading model...')
     const session = await loadModel()
+    console.log('Model loaded successfully')
 
     // Dynamically import ONNX Runtime for Tensor
     const ort = await getOnnxRuntime()
@@ -165,12 +214,20 @@ export async function POST(request: NextRequest) {
       probability_fake: 1 - probability,
     }
 
-    return NextResponse.json(result)
+    return NextResponse.json(result, {
+      headers: corsHeaders,
+    })
   } catch (error: any) {
     console.error('Analysis error:', error)
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
-      { status: 500 }
+      { 
+        error: error.message || 'Internal server error',
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      },
+      { 
+        status: 500,
+        headers: corsHeaders,
+      }
     )
   }
 }
@@ -179,5 +236,16 @@ export async function GET() {
   return NextResponse.json({
     message: 'Fake Image Detector API - Use POST /api/analyze to analyze images',
     model: modelSession ? 'loaded' : 'not loaded',
+    status: 'ok',
+  }, {
+    headers: corsHeaders,
+  })
+}
+
+// Handle OPTIONS requests for CORS preflight
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: corsHeaders,
   })
 }
