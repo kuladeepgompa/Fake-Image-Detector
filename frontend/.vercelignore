@@ -1,0 +1,63 @@
+# Exclude files from Vercel deployment to reduce function size
+# These files are not needed at runtime
+
+# Development files
+.git
+.gitignore
+*.md
+README*
+CHANGELOG*
+LICENSE*
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.test.js
+**/*.spec.ts
+**/*.spec.tsx
+**/*.spec.js
+**/__tests__/**
+**/__mocks__/**
+
+# Build artifacts (Vercel builds these)
+.next
+out
+dist
+build
+
+# Cache
+.cache
+*.cache
+.parcel-cache
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python files (not needed in frontend)
+*.py
+__pycache__
+*.pyc
+venv/
+env/
+
+# Backend directory (not needed in frontend deployment)
+../backend
+
+# Dataset (not needed)
+../dataset
+
+# Jupyter notebooks
+*.ipynb
+
+# Model file should be in public/ (served via CDN, not bundled)
+# But exclude it from function tracing
+public/model.onnx
+

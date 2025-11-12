@@ -34,6 +34,7 @@ async function loadModel(): Promise<any> {
     const { InferenceSession } = ort
 
     // Try multiple possible paths for the ONNX model
+    // Use dynamic path resolution to avoid bundling the model file
     const possiblePaths = [
       path.join(process.cwd(), 'public', 'model.onnx'),
       path.join(process.cwd(), '..', 'public', 'model.onnx'),
@@ -41,10 +42,16 @@ async function loadModel(): Promise<any> {
     ]
 
     let modelPath: string | null = null
+    // Use try-catch instead of existsSync to avoid file tracing
     for (const p of possiblePaths) {
-      if (fs.existsSync(p)) {
+      try {
+        // Just try to access it - if it fails, try next path
+        await fs.promises.access(p, fs.constants.F_OK)
         modelPath = p
         break
+      } catch {
+        // File doesn't exist, try next path
+        continue
       }
     }
 
