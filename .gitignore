@@ -37,3 +37,14 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+frontend/.gitignore
+frontend/.next/
+frontend/.vercel
+frontend/node_modules/
+
+backend/__pycache__/
+backend/*.pyc
+backend/instance/
+backend/.env
+backend/venv/
+backend/.venv311/

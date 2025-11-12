@@ -12,7 +12,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "next": "^14.0.0",
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "onnxruntime-node": "^1.16.0",
+    "sharp": "^0.32.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -20,6 +22,7 @@
     "@types/react-dom": "^18.2.0",
     "typescript": "^5.0.0",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint-config-next": "^14.0.0",
+    "node-loader": "^2.0.0"
   }
 }

@@ -7,11 +7,25 @@ const nextConfig = {
       bodySizeLimit: '10mb',
     },
   },
-  // Ensure Python scripts are accessible
+  // Configure webpack to handle ONNX Runtime native bindings
   webpack: (config, { isServer }) => {
     if (isServer) {
+      // Externalize onnxruntime-node completely - don't try to bundle it
+      // It will be loaded at runtime as a native module
       config.externals = config.externals || []
+      config.externals.push('onnxruntime-node')
     }
+    
+    // Don't try to bundle native modules on client side
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+      }
+    }
+    
     return config
   },
 }

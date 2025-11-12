@@ -1,24 +1,54 @@
 # Quick Start Guide
 
 ## Prerequisites
-- Python 3.9+ with required packages (torch, torchvision, pillow, opencv-python, numpy)
-- Node.js 18+
+- **For Model Conversion (One-time)**: Python 3.9+ with PyTorch (`pip install torch torchvision`)
+- **For Running App**: Node.js 18+
 
-## Starting the Application
+## 🆓 Free Vercel Deployment (Recommended!)
 
-The application is now fully integrated into Next.js - no separate backend server needed!
+The app now uses **ONNX Runtime** - completely free, no Python server needed!
 
-### Setup (First Time Only)
+### Step 1: Convert Model to ONNX (One-time setup)
+
+```bash
+# Make sure you're in project root (where best_resnet50.pth is)
+python convert_to_onnx.py
+```
+
+This creates `frontend/public/model.onnx` - your model that works on Vercel!
+
+### Step 2: Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### Step 3: Run Locally
+
+```bash
+npm run dev
+```
+
+The app runs on `http://localhost:3000` - **no Python backend needed!**
+
+### Step 4: Deploy to Vercel (Free!)
+
+1. Push code to GitHub
+2. Connect to Vercel
+3. Deploy - **That's it!** No backend server, no costs! 🎉
+
+See `ONNX_SETUP.md` for detailed instructions.
+
+---
+
+## Alternative: Local Development with Python (Old Method)
+
+If you want to use the Python script locally instead:
 
 1. **Install Python dependencies:**
    ```bash
    pip install -r frontend/requirements.txt
-   ```
-   Or if you have a virtual environment:
-   ```bash
-   cd backend
-   source venv/bin/activate
-   pip install -r ../frontend/requirements.txt
    ```
 
 2. **Install Node.js dependencies:**
@@ -27,21 +57,10 @@ The application is now fully integrated into Next.js - no separate backend serve
    npm install
    ```
 
-### Starting the Application
-
-**Single Command:**
-```bash
-cd frontend
-npm run dev
-```
-
-The application will start on `http://localhost:3000` and is accessible from any device on your network!
-
-### Alternative: Using the startup script
-
-```bash
-./start_frontend.sh
-```
+3. **Run:**
+   ```bash
+   npm run dev
+   ```
 
 ## Using the Application
 
