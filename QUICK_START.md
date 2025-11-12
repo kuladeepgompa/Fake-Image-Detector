@@ -52,15 +52,15 @@ If you want to use the Python script locally instead:
    ```
 
 2. **Install Node.js dependencies:**
-   ```bash
-   cd frontend
+```bash
+cd frontend
    npm install
    ```
 
 3. **Run:**
    ```bash
-   npm run dev
-   ```
+npm run dev
+```
 
 ## Using the Application
 
