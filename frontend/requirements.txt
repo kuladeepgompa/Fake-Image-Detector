@@ -1,0 +1,8 @@
+# Python dependencies for the image analysis script
+# These should be installed in the same Python environment that Next.js will use
+torch>=2.0.0
+torchvision>=0.15.0
+pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
