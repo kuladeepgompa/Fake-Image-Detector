@@ -8,7 +8,7 @@ SUDHARSHANA (23BDS059)
 
 
 
-# 🖼️ AI Image Authenticity Detector
+ AI Image Authenticity Detector
 
 A full-stack web application that uses deep learning to detect whether an image is real or AI-generated. Built with a fine-tuned ResNet50 model, this application provides real-time image analysis with confidence scores and probability distributions.
 
@@ -18,7 +18,7 @@ A full-stack web application that uses deep learning to detect whether an image 
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 📋 Table of Contents
+Table of Contents
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
@@ -34,37 +34,37 @@ A full-stack web application that uses deep learning to detect whether an image 
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## ✨ Features
+Features
 
-- **🎯 Real-time Image Analysis**: Upload images and get instant predictions
-- **📊 Confidence Scores**: View detailed probability distributions for real vs fake classifications
-- **🎨 Modern UI**: Beautiful, responsive interface with drag-and-drop file upload
-- **🚀 Fast Performance**: Optimized model inference with GPU support
-- **📱 Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **🔄 Real-time Feedback**: Visual progress indicators and smooth animations
-- **🎭 Glassmorphism Design**: Modern UI with backdrop blur effects and gradient animations
+-  Real-time Image Analysis**: Upload images and get instant predictions
+- Confidence Scores**: View detailed probability distributions for real vs fake classifications
+-  Modern UI**: Beautiful, responsive interface with drag-and-drop file upload
+-  Fast Performance**: Optimized model inference with GPU support
+- Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- Real-time Feedback**: Visual progress indicators and smooth animations
+- Glassmorphism Design**: Modern UI with backdrop blur effects and gradient animations
 
-## 🛠️ Tech Stack
+Tech Stack
 
-### Backend
+Backend
 - **FastAPI**: Modern, fast web framework for building APIs
 - **PyTorch**: Deep learning framework for model inference
 - **ResNet50**: Pre-trained CNN architecture fine-tuned for fake image detection
 - **Uvicorn**: ASGI server for running FastAPI
 - **OpenCV & PIL**: Image processing and preprocessing
 
-### Frontend
+Frontend
 - **Next.js 14**: React framework with App Router
 - **TypeScript**: Type-safe JavaScript
 - **Axios**: HTTP client for API requests
 - **CSS Modules**: Scoped styling with modern animations
 
-### Machine Learning
+Machine Learning
 - **Model Architecture**: ResNet50 with custom classifier head
 - **Transfer Learning**: Fine-tuned on ImageNet weights
 - **Training**: Binary classification (Real vs Fake)
 
-## 📁 Project Structure
+ Project Structure
 
 ```
 Fake-Image-Detector-Model/
@@ -100,40 +100,39 @@ Fake-Image-Detector-Model/
 │
 ├── Output_images/               # Training outputs and visualizations
 ├── main.ipynb                    # Jupyter notebook for model training
-├── best_resnet50.pth            # Trained model weights (⚠️ Add this file)
+├── best_resnet50.pth            # Trained model weights
 ├── requirements.txt             # Root-level Python dependencies
 ├── start_backend.sh             # Backend startup script
 ├── start_frontend.sh            # Frontend startup script
 └── README.md                    # This file
 ```
 
-## 📦 Prerequisites
+Prerequisites
 
 Before you begin, ensure you have the following installed:
 
-- **Python 3.8+** ([Download](https://www.python.org/downloads/))
-- **Node.js 16+** and npm ([Download](https://nodejs.org/))
-- **Git** ([Download](https://git-scm.com/downloads))
-- **CUDA** (Optional, for GPU acceleration)
+- Python 3.8+** ([Download](https://www.python.org/downloads/))
+- Node.js 16+** and npm ([Download](https://nodejs.org/))
+- Git** ([Download](https://git-scm.com/downloads))
 
-### System Requirements
+ System Requirements
 
-- **RAM**: Minimum 4GB (8GB recommended)
-- **Storage**: At least 2GB free space
-- **GPU**: Optional but recommended for faster inference (NVIDIA GPU with CUDA support)
+- RAM: Minimum 4GB (8GB recommended)
+- Storage: At least 2GB free space
+- GPU: Optional but recommended for faster inference (NVIDIA GPU with CUDA support)
 
-## 🚀 Installation
+🚀 Installation
 
-### Step 1: Clone the Repository
+ Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/Fake-Image-Detector-Model.git
 cd Fake-Image-Detector-Model
 ```
 
-### Step 2: Place Model File
+ Step 2: Place Model File
 
-**IMPORTANT**: Place your trained model file (`best_resnet50.pth`) in the project root directory:
+IMPORTANT: Place your trained model file (`best_resnet50.pth`) in the project root directory:
 
 ```bash
 Fake-Image-Detector-Model/
@@ -178,102 +177,102 @@ model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "your-mode
    ls ../best_resnet50.pth
    ```
 
-### Step 4: Frontend Setup
+Step 4: Frontend Setup
 
-1. **Navigate to frontend directory:**
+1. Navigate to frontend directory:**
    ```bash
    cd ../frontend
    ```
 
-2. **Install dependencies:**
+2. Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Create environment file (optional):**
+3. Create environment file (optional):**
    ```bash
    # Create .env.local file
    echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
    ```
 
-## 🎮 Usage
+🎮 Usage
 
-### Starting the Application
+Starting the Application
 
-#### Option 1: Using Startup Scripts (Recommended)
+ Option 1: Using Startup Scripts (Recommended)
 
-**Terminal 1 - Backend:**
+Terminal 1 - Backend:**
 ```bash
 chmod +x start_backend.sh
 ./start_backend.sh
 ```
 
-**Terminal 2 - Frontend:**
+Terminal 2 - Frontend:**
 ```bash
 chmod +x start_frontend.sh
 ./start_frontend.sh
 ```
 
-#### Option 2: Manual Start
+Option 2: Manual Start
 
-**Terminal 1 - Backend:**
+Terminal 1 - Backend:**
 ```bash
 cd backend
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 python app.py
 ```
 
-**Terminal 2 - Frontend:**
+Terminal 2 - Frontend:**
 ```bash
 cd frontend
 npm run dev
 ```
 
-### Accessing the Application
+Accessing the Application
 
-- **Frontend**: Open [http://localhost:3000](http://localhost:3000) in your browser
-- **Backend API**: Available at [http://localhost:8000](http://localhost:8000)
-- **API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
+- Frontend**: Open [http://localhost:3000](http://localhost:3000) in your browser
+- Backend API**: Available at [http://localhost:8000](http://localhost:8000)
+- API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
 
-### Using the Web Interface
+Using the Web Interface
 
-1. **Upload Image**: 
+1. Upload Image**: 
    - Drag and drop an image onto the upload zone, or
    - Click the upload zone to browse and select an image
 
-2. **Analyze**: Click the "Analyze Image" button
+2. Analyze**: Click the "Analyze Image" button
 
-3. **View Results**: 
+3. View Results**: 
    - See the prediction (Real or AI-Generated)
    - View confidence score and probability distributions
    - Check detailed statistics
 
-4. **Reset**: Click "Reset" to upload a new image
+4. Reset: Click "Reset" to upload a new image
 
-### Supported Image Formats
+Supported Image Formats
 
 - JPEG/JPG
 - PNG
 - WEBP
 - Maximum file size: 10MB (configurable)
 
-## 📡 API Documentation
+ API Documentation
 
-### Base URL
+Base URL
 
 ```
 http://localhost:8000
 ```
 
-### Endpoints
+ Endpoints
 
-#### 1. Health Check
+1. Health Check
 
-**GET** `/health`
+GET** `/health`
 
 Check if the API is running and the model is loaded.
 
-**Response:**
+Response:**
 ```json
 {
   "status": "healthy",
@@ -281,18 +280,18 @@ Check if the API is running and the model is loaded.
 }
 ```
 
-#### 2. Analyze Image
+ 2. Analyze Image
 
-**POST** `/analyze`
+POST** `/analyze`
 
 Analyze an uploaded image to determine if it's real or fake.
 
-**Request:**
-- **Method**: `POST`
-- **Content-Type**: `multipart/form-data`
-- **Body**: Form data with `file` field containing the image
+Request:
+- Method**: `POST`
+- Content-Type**: `multipart/form-data`
+- Body**: Form data with `file` field containing the image
 
-**Example using curl:**
+Example using curl:**
 ```bash
 curl -X POST "http://localhost:8000/analyze" \
   -H "accept: application/json" \
@@ -300,7 +299,7 @@ curl -X POST "http://localhost:8000/analyze" \
   -F "file=@/path/to/your/image.jpg"
 ```
 
-**Response:**
+Response:**
 ```json
 {
   "prediction": "real",
@@ -310,13 +309,13 @@ curl -X POST "http://localhost:8000/analyze" \
 }
 ```
 
-**Response Fields:**
+Response Fields:**
 - `prediction`: Either `"real"` or `"fake"`
 - `confidence`: Confidence score (0.0 to 1.0) for the prediction
 - `probability_real`: Probability that the image is real (0.0 to 1.0)
 - `probability_fake`: Probability that the image is fake/AI-generated (0.0 to 1.0)
 
-**Error Responses:**
+Error Responses:**
 
 ```json
 {
@@ -330,22 +329,22 @@ curl -X POST "http://localhost:8000/analyze" \
 }
 ```
 
-#### 3. Root Endpoint
+ 3. Root Endpoint
 
 **GET** `/`
 
 Returns a simple message indicating the API is running.
 
-**Response:**
+Response:**
 ```json
 {
   "message": "Fake Image Detector API is running"
 }
 ```
 
-## 🤖 Model Information
+ Model Information
 
-### Architecture
+Architecture
 
 - **Base Model**: ResNet50 (ImageNet pre-trained)
 - **Fine-tuning Strategy**: 
@@ -353,7 +352,7 @@ Returns a simple message indicating the API is running.
   - Trainable layers (layer3, layer4)
   - Custom classifier head with dropout regularization
 
-### Classifier Head
+ Classifier Head
 
 ```
 Input (2048 features)
@@ -379,7 +378,7 @@ Dropout (0.2)
 Linear (256 → 1) [Output logits]
 ```
 
-### Preprocessing
+ Preprocessing
 
 Images are preprocessed to match ImageNet standards:
 - Resize to 224×224 pixels
@@ -387,7 +386,7 @@ Images are preprocessed to match ImageNet standards:
   - Mean: [0.485, 0.456, 0.406]
   - Std: [0.229, 0.224, 0.225]
 
-### Training
+Training
 
 The model was trained on a dataset of real and AI-generated images with:
 - Binary cross-entropy loss
@@ -395,16 +394,16 @@ The model was trained on a dataset of real and AI-generated images with:
 - Learning rate scheduling
 - Data augmentation (during training)
 
-## 💻 Development
+ Development
 
-### Running in Development Mode
+Running in Development Mode
 
 Both backend and frontend support hot-reloading:
 
 - **Backend**: Automatically reloads on code changes
 - **Frontend**: Next.js Fast Refresh enabled
 
-### Testing the Backend
+ Testing the Backend
 
 ```bash
 cd backend
@@ -412,16 +411,16 @@ source venv/bin/activate
 python test_model.py
 ```
 
-### Building for Production
+ Building for Production
 
-**Frontend:**
+Frontend:**
 ```bash
 cd frontend
 npm run build
 npm start
 ```
 
-**Backend:**
+Backend:**
 The backend can be run with production ASGI servers:
 
 ```bash
@@ -430,18 +429,18 @@ pip install gunicorn
 gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
 ```
 
-### Code Structure
+Code Structure
 
 - **Backend API**: RESTful API following FastAPI best practices
 - **Frontend**: Component-based React architecture with TypeScript
 - **Styling**: CSS Modules for scoped styling
 - **State Management**: React hooks (useState, useRef)
 
-## 🚢 Deployment
+Deployment
 
-### Backend Deployment
+Backend Deployment
 
-#### Option 1: Cloud Platforms
+ Option 1: Cloud Platforms
 
 **Heroku:**
 ```bash
@@ -452,13 +451,13 @@ echo "web: uvicorn app:app --host 0.0.0.0 --port \$PORT" > Procfile
 git push heroku main
 ```
 
-**Railway/Render:**
+Railway/Render:**
 - Connect your GitHub repository
 - Set build command: `pip install -r requirements.txt`
 - Set start command: `python app.py`
 - Upload model file to the server
 
-#### Option 2: VPS/Dedicated Server
+ Option 2: VPS/Dedicated Server
 
 ```bash
 # Install dependencies
@@ -470,14 +469,14 @@ gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker \
   --timeout 120
 ```
 
-**Important**: 
+Important**: 
 - Update CORS settings to allow your frontend domain
 - Use environment variables for configuration
 - Set up proper logging and monitoring
 
-### Frontend Deployment
+Frontend Deployment
 
-#### Vercel (Recommended for Next.js)
+Vercel (Recommended for Next.js)
 
 1. Push code to GitHub
 2. Import project in Vercel
@@ -485,21 +484,21 @@ gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker \
    - `NEXT_PUBLIC_API_URL`: Your backend API URL
 4. Deploy
 
-#### Netlify
+ Netlify
 
 1. Build command: `npm run build`
 2. Publish directory: `.next`
 3. Set environment variables
 4. Deploy
 
-#### Self-Hosted
+ Self-Hosted
 
 ```bash
 npm run build
 npm start
 ```
 
-### Environment Variables
+ Environment Variables
 
 **Backend** (Optional):
 ```env
@@ -513,11 +512,11 @@ CORS_ORIGINS=http://localhost:3000,https://yourdomain.com
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
-## 🔧 Troubleshooting
+ Troubleshooting
 
-### Common Issues
+Common Issues
 
-#### 1. Model File Not Found
+1. Model File Not Found
 
 **Error:**
 ```
@@ -529,7 +528,7 @@ FileNotFoundError: [Errno 2] No such file or directory: '../best_resnet50.pth'
 - Check the file name matches exactly (case-sensitive)
 - Update `MODEL_PATH` in `backend/app.py` if using a different name
 
-#### 2. Port Already in Use
+ 2. Port Already in Use
 
 **Error:**
 ```
@@ -545,7 +544,7 @@ lsof -ti:8000 | xargs kill
 uvicorn.run(app, host="0.0.0.0", port=8001)
 ```
 
-#### 3. Module Not Found
+ 3. Module Not Found
 
 **Error:**
 ```
@@ -562,7 +561,7 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-#### 4. Cannot Connect to Backend
+ 4. Cannot Connect to Backend
 
 **Error:**
 ```
@@ -576,7 +575,7 @@ Cannot connect to server
 - Verify `.env.local` has correct API URL
 - Check firewall settings
 
-#### 5. CUDA/GPU Issues
+ 5. CUDA/GPU Issues
 
 **Error:**
 ```
@@ -588,7 +587,7 @@ CUDA out of memory
 - For GPU issues, ensure CUDA drivers are installed
 - Reduce batch size if using GPU
 
-#### 6. Frontend Build Errors
+ 6. Frontend Build Errors
 
 **Error:**
 ```
@@ -604,14 +603,14 @@ npm install
 npm run build
 ```
 
-### Getting Help
+ Getting Help
 
 1. Check the [Issues](https://github.com/yourusername/Fake-Image-Detector-Model/issues) page
 2. Review the logs in both backend and frontend terminals
 3. Verify all prerequisites are installed correctly
 4. Ensure model file is in the correct location
 
-## 🤝 Contributing
+ Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -631,7 +630,7 @@ Contributions are welcome! Please follow these steps:
    ```
 6. **Open a Pull Request**
 
-### Contribution Guidelines
+ Contribution Guidelines
 
 - Follow the existing code style
 - Add comments for complex logic
@@ -639,7 +638,7 @@ Contributions are welcome! Please follow these steps:
 - Test your changes thoroughly
 - Ensure all tests pass
 
-## 🙏 Acknowledgments
+Acknowledgments
 
 - **ResNet Architecture**: Based on the ResNet paper by He et al.
 - **PyTorch**: Deep learning framework
