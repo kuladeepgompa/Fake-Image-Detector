@@ -646,8 +646,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions, issues, or suggestions:
 
 - **GitHub Issues**: [Open an issue](https://github.com/yourusername/Fake-Image-Detector-Model/issues)
-- **Email**: your.email@example.com
-
+- **Email**: kuladeepgompa@gmail.com
 ## 📊 Project Status
 
 - ✅ Model Training
