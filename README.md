@@ -629,10 +629,6 @@ Contributions are welcome! Please follow these steps:
 - Test your changes thoroughly
 - Ensure all tests pass
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - **ResNet Architecture**: Based on the ResNet paper by He et al.
@@ -640,6 +636,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **FastAPI**: Modern web framework
 - **Next.js**: React framework
 - **ImageNet**: Pre-trained weights
+- THANKING Our Prof. Dr.Animesh Chaturvedi for the guidance and Feedback.
 
 ## 📞 Contact
 
