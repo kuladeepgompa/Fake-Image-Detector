@@ -1,3 +1,13 @@
+TEAM MEMBERS:
+KULADEEP (23BDS021)
+HARSHITH (23BDS058)
+BHARATH (23BDS012 )
+SADAN (23BDS048)
+GURU SAI HARSHA (23BDS005)
+SUDHARSHANA (23BDS059)
+
+
+
 # 🖼️ AI Image Authenticity Detector
 
 A full-stack web application that uses deep learning to detect whether an image is real or AI-generated. Built with a fine-tuned ResNet50 model, this application provides real-time image analysis with confidence scores and probability distributions.
@@ -638,8 +648,6 @@ Contributions are welcome! Please follow these steps:
 - **ImageNet**: Pre-trained weights
 - THANKING Our Prof. Dr.Animesh Chaturvedi for the guidance and Feedback.
 
-## 📞 Contact
-
 For questions, issues, or suggestions:
 
 - **GitHub Issues**: [Open an issue](https://github.com/yourusername/Fake-Image-Detector-Model/issues)
@@ -653,8 +661,4 @@ For questions, issues, or suggestions:
 - 🔄 Continuous Improvements
 
 ---
-
-**Made with ❤️ using PyTorch, FastAPI, and Next.js**
-
-If you find this project helpful, please consider giving it a ⭐ on GitHub!
 
