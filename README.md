@@ -6,6 +6,7 @@ SADAN (23BDS048)
 GURU SAI HARSHA (23BDS005)
 SUDHARSHANA (23BDS059)
 
+[Watch Demo Video](https://drive.google.com/file/d/1yqI-HYy_MIYuJV1Z1c3Uevxfa0oL7p5E/view?usp=sharing)
 
 
  AI Image Authenticity Detector
