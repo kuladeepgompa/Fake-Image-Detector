@@ -17,7 +17,6 @@ A full-stack web application that uses deep learning to detect whether an image 
 ![Next.js](https://img.shields.io/badge/Next.js-14.0-black.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Table of Contents
 
